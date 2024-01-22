@@ -16,9 +16,24 @@ namespace DotnetL.Controllers
     [ApiController]
     public class BookController : ControllerBase
     {
-            const string connectionUri = "mongodb+srv://rubayethasanyasin1:O9tOMY0JrFMIqFBN@cluster0.f3udoep.mongodb.net/?retryWrites=true&w=majority";
+        
+        
 
-        private MongoClient client = new MongoClient(connectionUri);
+
+
+        //public MongoClient client()
+        //{
+        //    const string connectionUri = "mongodb+srv://rubayethasanyasin1:O9tOMY0JrFMIqFBN@cluster0.f3udoep.mongodb.net/?retryWrites=true&w=majority";
+        //    var settings = MongoClientSettings.FromConnectionString(connectionUri);
+        //    settings.ServerApi = new ServerApi(ServerApiVersion.V1);
+
+        //    var client = new MongoClient(settings);
+
+
+        //    return client;
+
+
+        //}
         
         
         
@@ -29,14 +44,9 @@ namespace DotnetL.Controllers
         public ActionResult GetBooks()
         {
 
-            var dataBase =  client.GetDatabase("Books");
-            var collection = dataBase.GetCollection<BsonDocument>("book");
+            return Ok("Hello");
 
-            var filter = Builders<BsonDocument>.Filter.Eq("title", "");
 
-            var document = collection.Find(filter).ToList();
-
-            return Ok(document);
         }
 
         // GET api/<BookController>/5
